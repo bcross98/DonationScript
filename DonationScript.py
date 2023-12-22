@@ -6,9 +6,10 @@ from PIL import ImageGrab
 #Variables
 chat = pyautogui.locateCenterOnScreen("Resources/Buttons/chat.png", confidence=0.7)
 
-#Open chat
-pyautogui.moveTo(chat, duration=0.1)
-pyautogui.click(button="left", clicks=2, interval=0.25)
+#Open chat function
+def OpenChat():
+    pyautogui.moveTo(chat, duration=0.1)
+    pyautogui.click(button="left", clicks=2, interval=0.25)
 
 #Capture and process function
 def CaptureAndProcess():
@@ -26,4 +27,5 @@ def CaptureAndProcess():
         print("Didn't find")
 
 #Main loop
+OpenChat()
 CaptureAndProcess()
