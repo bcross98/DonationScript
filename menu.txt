@@ -1,8 +1,0 @@
-X = Super Archers + Wbs(& Gobs) + Rage + Invis
-O = Yetis + Giant(s) + Wiz + Rage + Freeze
-? = Balloons + Rage + Freeze
-
-&&
-
-14 = Townhall 14 clan castle
-15 = Townhall 15 clan castle
