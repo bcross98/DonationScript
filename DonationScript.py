@@ -2,6 +2,8 @@
 import pyautogui
 import pytesseract
 from PIL import ImageGrab
+import subprocess
+import time
 
 #Variables
 chat = pyautogui.locateCenterOnScreen("Resources/Buttons/chat.png", confidence=0.7)
@@ -11,21 +13,33 @@ def OpenChat():
     pyautogui.moveTo(chat, duration=0.1)
     pyautogui.click(button="left", clicks=2, interval=0.25)
 
+    time.sleep(2)
+
 #Capture and process function
 def CaptureAndProcess():
     capture=ImageGrab.grab(bbox = None)
 
     tess = pytesseract.image_to_string(capture)
 
-    if (tess.find("Super Archers") != -1):
-        print("Found SA")
+    if (tess.find("Super Archer") != -1):
+        subprocess.run(["python", "Library/SuperArcher.py"])
+
+    #Issue finding Yeti
     elif (tess.find("Yeti") != -1):
-        print("Found Yet")
-    elif (tess.find("Balloons") != -1):
-        print("Found Bal")
+        subprocess.run(["python", "Library/Yeti.py"])
+
+    elif (tess.find("Balloon") != -1):
+        subprocess.run(["python", "Library/Balloon.py"])
+        
     else:
-        print("Didn't find")
+        print("Nothing found")
+
+
+#Test function
+def Test():
+    captureTest = ImageGrab.grab(bbox = None)
+    tessTest = pytesseract.image_to_string(captureTest)
+    print(tessTest)
 
 #Main loop
-OpenChat()
 CaptureAndProcess()
