@@ -13,7 +13,7 @@ def OpenChat():
     pyautogui.moveTo(chat, duration=0.1)
     pyautogui.click(button="left", clicks=2, interval=0.25)
 
-    time.sleep(2)
+    time.sleep(1)
 
 #Capture and process function
 def CaptureAndProcess():
@@ -35,11 +35,6 @@ def CaptureAndProcess():
         print("Nothing found")
 
 
-#Test function
-def Test():
-    captureTest = ImageGrab.grab(bbox = None)
-    tessTest = pytesseract.image_to_string(captureTest)
-    print(tessTest)
-
 #Main loop
+OpenChat()
 CaptureAndProcess()
