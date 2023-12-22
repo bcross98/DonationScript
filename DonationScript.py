@@ -16,8 +16,14 @@ def CaptureAndProcess():
 
     tess = pytesseract.image_to_string(capture)
 
-    print(tess)
-
-CaptureAndProcess()
+    if (tess.find("Super Archers") != -1):
+        print("Found SA")
+    elif (tess.find("Yeti") != -1):
+        print("Found Yet")
+    elif (tess.find("Balloons") != -1):
+        print("Found Bal")
+    else:
+        print("Didn't find")
 
 #Main loop
+CaptureAndProcess()
